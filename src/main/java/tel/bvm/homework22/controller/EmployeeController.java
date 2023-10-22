@@ -15,8 +15,39 @@ public class EmployeeController {
     public EmployeeController(EmployeeService service) {
         this.service = service;
     }
+
+    public int departmentNumberGenerator() {
+        java.util.Random random = new java.util.Random();
+        int minimumScore = 1;
+        int departmentNumberGenerator = random.nextInt(5) + minimumScore;
+        return departmentNumberGenerator;
+    }
+
+    public int wageValueGenerator() {
+        java.util.Random random = new java.util.Random();
+        int minimumScore = 100_000;
+        int wageValueGenerator = random.nextInt(300_000) + minimumScore;
+        return wageValueGenerator;
+    }
+
     @GetMapping("/add")
-    public Employee add(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String passwordNumber, @RequestParam Integer yearBirth, @RequestParam Integer wage, @RequestParam Integer departmentNumber) {
-        return service.add(firstName, lastName, passwordNumber, yearBirth, wage, departmentNumber);
+    public Employee add(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String passwordNumber, @RequestParam Integer yearBirth) {
+//        Integer wage = wageValueGenerator();
+//        Integer departmentNumber = departmentNumberGenerator();
+        return service.add(firstName, lastName, passwordNumber, yearBirth);
+    }
+
+    @GetMapping("/remove")
+    public Employee remove(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String passwordNumber) {
+//        Integer wage = wageValueGenerator();
+//        Integer departmentNumber = departmentNumberGenerator();
+        return service.remove(firstName, lastName, passwordNumber);
+    }
+
+    @GetMapping("/find")
+    public Employee find(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String passwordNumber) {
+//        Integer wage = wageValueGenerator();
+//        Integer departmentNumber = departmentNumberGenerator();
+        return service.find(firstName, lastName, passwordNumber);
     }
 }
