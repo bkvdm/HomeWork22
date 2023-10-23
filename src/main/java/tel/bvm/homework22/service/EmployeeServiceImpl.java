@@ -44,7 +44,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         return wageValueGenerator;
     }
 
-    //    String idEmployeeInfo =
     @Override
     public Employee add(String firstName, String lastName, String passwordNumber, Integer yearBirth) {
         employeeMap.put(employeeDefault1.getFirstName() + employeeDefault1.getLastName() + employeeDefault1.getYearBirth(), employeeDefault1);
@@ -74,17 +73,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         String idEmployeeInfo = firstName + lastName + passwordNumber;
         Employee employee = employeeMap.get(idEmployeeInfo);
         if (employee != null) {
-            employeeMap.remove(employee);
+            employeeMap.remove(idEmployeeInfo, employee);
             return employee;
         }
         throw new EmployeeNotFoundException();
     }
-//        Employee employee = new Employee(firstName, lastName, passwordNumber, yearBirth, wage, departmentNumber);
-//        if (employeeMap.containsKey(idEmployeeInfo)) {
-//            employeeMap.remove(employee);
-//            return employee;
-//        }
-//        throw new EmployeeNotFoundException();
 
     @Override
     public Employee find(String firstName, String lastName, String passwordNumber) {
@@ -96,10 +89,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
         throw new EmployeeNotFoundException();
     }
-//        Employee employee = new Employee(firstName, lastName, passwordNumber, yearBirth, wage, departmentNumber);
-//        String idEmployeeInfo = firstName + lastName + passwordNumber;
-//        if (employeeMap.containsKey(idEmployeeInfo)) {
-//        }
 
     @Override
     public Map<String, Employee> allEmployeeInfo() {
