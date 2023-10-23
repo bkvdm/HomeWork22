@@ -16,7 +16,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     Employee employeeDefault1 = new Employee("Иванов", "Иван", "12345", 1980, wageValueGenerator(), departmentNumberGenerator());
     Employee employeeDefault2 = new Employee("Петров", "Пётр", "34789", 1975, wageValueGenerator(), departmentNumberGenerator());
-    Employee employeeDefault3 = new Employee("Петров", "Пётр", "30237", 1989, wageValueGenerator(), departmentNumberGenerator());
+    Employee employeeDefault3 = new Employee("Смирнов", "Максим", "30237", 1989, wageValueGenerator(), departmentNumberGenerator());
     Employee employeeDefault4 = new Employee("Новая", "Мария", "48905", 1990, wageValueGenerator(), departmentNumberGenerator());
     Employee employeeDefault5 = new Employee("Симонов", "Тимофей", "01242", 1983, wageValueGenerator(), departmentNumberGenerator());
     Employee employeeDefault6 = new Employee("Виноградова", "Анастасия", "29384", 1991, wageValueGenerator(), departmentNumberGenerator());

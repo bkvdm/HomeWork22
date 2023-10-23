@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 import tel.bvm.homework22.scheme.Employee;
 import tel.bvm.homework22.service.EmployeeService;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
@@ -49,5 +51,10 @@ public class EmployeeController {
 //        Integer wage = wageValueGenerator();
 //        Integer departmentNumber = departmentNumberGenerator();
         return service.find(firstName, lastName, passwordNumber);
+    }
+
+    @GetMapping
+    public Map<String, Employee> allEmployeeInfo() {
+    return service.allEmployeeInfo();
     }
 }
