@@ -5,9 +5,7 @@ import tel.bvm.homework22.exception.EmployeeAlreadyAddedException;
 import tel.bvm.homework22.exception.EmployeeNotFoundException;
 import tel.bvm.homework22.scheme.Employee;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -95,4 +93,72 @@ public class EmployeeServiceImpl implements EmployeeService {
 //        return new HashMap<> (employeeMap);
         return Collections.unmodifiableMap(employeeMap);
     }
+
+    @Override
+    public Employee maxWageDepartment(Integer departmentNumber) {
+        final Map<Integer, Employee> employeeDepartment = new HashMap<>(Map.of());
+
+//        employeeDepartment.get(departmentNumber);
+//        int max = Stream.of(1, 2, 3).max(Comparator.naturalOrder()).get();
+
+        Optional<Employee> maxDepartmentEmployee = employeeMap.values().stream()
+                .filter(employee -> employee.getDepartmentNumber().equals(departmentNumber))
+                .max(Comparator.comparingInt(employee -> employee.getDepartmentNumber()));
+        maxDepartmentEmployee.orElseThrow();
+
+        if (maxDepartmentEmployee == null) {
+            throw new EmployeeNotFoundException();
+        }
+        return maxDepartmentEmployee.get();
+    }
+
+    @Override
+    public Employee minWageDepartment(Integer departmentNumber) {
+        final Map<Integer, Employee> employeeDepartment = new HashMap<>(Map.of());
+
+        Optional<Employee> minDepartmentEmployee = employeeMap.values().stream()
+                .filter(employee -> employee.getDepartmentNumber().equals(departmentNumber))
+                .min(Comparator.comparingInt(employee -> employee.getDepartmentNumber()));
+
+        minDepartmentEmployee.orElseThrow();
+
+        if (minDepartmentEmployee == null) {
+            throw new EmployeeNotFoundException();
+        }
+        return minDepartmentEmployee.get();
+    }
+
+    @Override
+    public Employee allEmployeeDepartment(Integer departmentNumber) {
+//        final Map<Integer, Employee> employeeDepartment = new HashMap<>(Map.of());
+        Map<Integer, Employee> employeeDepartment = new HashMap<>(Map.of());
+        employeeMap.forEach((s, employee) -> {
+            employeeDepartment.put(employee.getDepartmentNumber(), employee);
+        });
+        return employeeDepartment.get(departmentNumber);
+    }
+
+    @Override
+    public Map<Integer, Employee> allEmployeeSortDepartment() {
+
+        Map<Integer, Employee> employeeDepartment = new HashMap<>(Map.of());
+        employeeMap.forEach((s, employee) -> {
+            employeeDepartment.put(employee.getDepartmentNumber(), employee);
+        });
+        Map<Integer, Employee> sortedEmployeeDepartment = new TreeMap<>(employeeDepartment);
+        return Collections.unmodifiableMap(sortedEmployeeDepartment);
+    }
 }
+//                sortedEmployeeDepartment.values().stream().forEach(employee -> toString());
+
+
+//        employeeMap.forEach((s, employee) -> {
+//            employeeDepartment.put(employee.getDepartmentNumber(), employee);
+//        });
+
+
+//            employeeDepartment.put(employeeDefault1.getDepartmentNumber(), stringEmployeeEntry.getValue());
+
+//        for (Map.Entry<String, Employee> stringEmployeeEntry : employeeMap.entrySet()) {
+//            employeeDepartment.put(employeeMap.get(stringEmployeeEntry.getKey()).getDepartmentNumber(), stringEmployeeEntry.getValue());
+//        }

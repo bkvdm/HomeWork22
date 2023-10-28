@@ -51,4 +51,23 @@ public class EmployeeController {
     public Map<String, Employee> allEmployeeInfo() {
         return service.allEmployeeInfo();
     }
+
+    @GetMapping("/departments/max-salary")
+    public Employee maxWageDepartment(@RequestParam Integer departmentNumber) {
+        return service.maxWageDepartment(departmentNumber);
+    }
+
+    @GetMapping("/departments/min-salary")
+    public Employee minWageDepartment(@RequestParam Integer departmentNumber) {
+        return service.minWageDepartment(departmentNumber);
+    }
+
+    @GetMapping("/departments/all")
+    public Employee allEmployeeDepartment(@RequestParam Integer departmentNumber) {
+        return service.allEmployeeDepartment(departmentNumber);
+    }
+    @GetMapping("/departments/all")
+    public Map <Integer, Employee> allEmployeeSortDepartment() {
+        return service.allEmployeeSortDepartment();
+    }
 }
