@@ -19,11 +19,5 @@ public interface EmployeeService {
 
     Employee minWageDepartment(Integer departmentNumber);
 
-    Employee allEmployeeDepartment(Integer departmentNumber);
-
-    Map<Integer, Employee> allEmployeeSortDepartment();
-
-//    Collection allEmployeeSortDepartment();
-
-//    Map allEmployeeSortDepartment();
+    String allEmployeeGroup(Integer department);
 }

@@ -63,11 +63,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/departments/all")
-    public Employee allEmployeeDepartment(@RequestParam Integer departmentNumber) {
-        return service.allEmployeeDepartment(departmentNumber);
-    }
-    @GetMapping("/departments/all")
-    public Map <Integer, Employee> allEmployeeSortDepartment() {
-        return service.allEmployeeSortDepartment();
+    public String employeeDepartment(@RequestParam(value = "department", required = false) Integer departmentNumber) {
+        return service.allEmployeeGroup(departmentNumber);
     }
 }
