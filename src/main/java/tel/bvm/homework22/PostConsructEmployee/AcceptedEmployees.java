@@ -1,15 +1,17 @@
 package tel.bvm.homework22.PostConsructEmployee;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import tel.bvm.homework22.scheme.Employee;
 import tel.bvm.homework22.service.EmployeeService;
 
-@Component
-public class AcceptedEmployees implements CommandLineRunner {
+import javax.annotation.PostConstruct;
 
-    public AcceptedEmployees() {
+@Component
+public class AcceptedEmployees {
+    private final EmployeeService employeeService;
+
+    public AcceptedEmployees(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
     public int departmentNumberGenerator() {
@@ -26,11 +28,8 @@ public class AcceptedEmployees implements CommandLineRunner {
         return wageValueGenerator;
     }
 
-    @Autowired
-    private EmployeeService employeeService;
-
-    @Override
-    public void run(String... args) {
+    @PostConstruct
+    public void init() {
 
         Employee employeeDefault1 = new Employee("Иванов", "Иван", "12345", 1980, wageValueGenerator(), departmentNumberGenerator());
         Employee employeeDefault2 = new Employee("Петров", "Пётр", "34789", 1975, wageValueGenerator(), departmentNumberGenerator());
