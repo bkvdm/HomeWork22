@@ -33,8 +33,8 @@ public class EmployeeController {
     }
 
     @GetMapping("/add")
-    public Employee add(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String passwordNumber, @RequestParam Integer yearBirth) {
-        return service.add(firstName, lastName, passwordNumber, yearBirth);
+    public Map add(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String passwordNumber, @RequestParam Integer yearBirth, @RequestParam (value = "accepted", required = false) Employee employee) {
+        return service.add(firstName, lastName, passwordNumber, yearBirth, employee);
     }
 
     @GetMapping("/remove")
@@ -53,12 +53,12 @@ public class EmployeeController {
     }
 
     @GetMapping("/departments/max-salary")
-    public Employee maxWageDepartment(@RequestParam Integer departmentNumber) {
+    public Employee maxWageDepartment(@RequestParam(value = "department", required = false) Integer departmentNumber) {
         return service.maxWageDepartment(departmentNumber);
     }
 
     @GetMapping("/departments/min-salary")
-    public Employee minWageDepartment(@RequestParam Integer departmentNumber) {
+    public Employee minWageDepartment(@RequestParam(value = "department", required = false) Integer departmentNumber) {
         return service.minWageDepartment(departmentNumber);
     }
 
