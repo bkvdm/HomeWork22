@@ -7,10 +7,6 @@ import java.util.Map;
 
 public interface EmployeeService {
 
-//    Employee add(String firstName, String lastName, String passwordNumber, Integer yearBirth, Employee employee);
-
-//    Employee add(String firstName, String lastName, String passwordNumber, Integer yearBirth);
-
     Map add(String firstName, String lastName, String passwordNumber, Integer yearBirth, Employee employee);
 
     Employee remove(String firstName, String lastName, String passwordNumber);
@@ -19,9 +15,11 @@ public interface EmployeeService {
 
     Map<String, Employee> allEmployeeInfo();
 
-    Employee maxWageDepartment(Integer departmentNumber);
+    Map<String, Employee> getMap();
+//    Employee maxWageDepartment(Integer departmentNumber);
+//
+//    Employee minWageDepartment(Integer departmentNumber);
+//
+//    String allEmployeeGroup(Integer department);
 
-    Employee minWageDepartment(Integer departmentNumber);
-
-    String allEmployeeGroup(Integer department);
 }

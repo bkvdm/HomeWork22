@@ -32,13 +32,7 @@ public class AcceptedEmployees implements CommandLineRunner {
     private EmployeeService employeeService;
 
     @Override
-    public void run(String...args) {
-
-//        public final Map<String, Employee> employeeMap;
-//
-//        public AcceptedEmployees (Map<String, Employee> employeeMap) {
-//            this.employeeMap = employeeMap;
-//        }
+    public void run(String... args) {
 
         Employee employeeDefault1 = new Employee("Иванов", "Иван", "12345", 1980, wageValueGenerator(), departmentNumberGenerator());
         Employee employeeDefault2 = new Employee("Петров", "Пётр", "34789", 1975, wageValueGenerator(), departmentNumberGenerator());
@@ -64,9 +58,5 @@ public class AcceptedEmployees implements CommandLineRunner {
         employeeService.add(employeeDefault10.getFirstName(), employeeDefault10.getLastName(), employeeDefault10.getPasswordNumber(), employeeDefault10.getYearBirth(), employeeDefault10);
         employeeService.add(employeeDefault11.getFirstName(), employeeDefault11.getLastName(), employeeDefault11.getPasswordNumber(), employeeDefault11.getYearBirth(), employeeDefault11);
 
-
-
-
     }
-
 }

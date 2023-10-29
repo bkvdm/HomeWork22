@@ -52,18 +52,18 @@ public class EmployeeController {
         return service.allEmployeeInfo();
     }
 
-    @GetMapping("/departments/max-salary")
-    public Employee maxWageDepartment(@RequestParam(value = "department", required = false) Integer departmentNumber) {
-        return service.maxWageDepartment(departmentNumber);
-    }
-
-    @GetMapping("/departments/min-salary")
-    public Employee minWageDepartment(@RequestParam(value = "department", required = false) Integer departmentNumber) {
-        return service.minWageDepartment(departmentNumber);
-    }
-
-    @GetMapping("/departments/all")
-    public String employeeDepartment(@RequestParam(value = "department", required = false) Integer departmentNumber) {
-        return service.allEmployeeGroup(departmentNumber);
-    }
+//    @GetMapping("/departments/max-salary")
+//    public Employee maxWageDepartment(@RequestParam(value = "department", required = false) Integer departmentNumber) {
+//        return service.maxWageDepartment(departmentNumber);
+//    }
+//
+//    @GetMapping("/departments/min-salary")
+//    public Employee minWageDepartment(@RequestParam(value = "department", required = false) Integer departmentNumber) {
+//        return service.minWageDepartment(departmentNumber);
+//    }
+//
+//    @GetMapping("/departments/all")
+//    public String employeeDepartment(@RequestParam(value = "department", required = false) Integer departmentNumber) {
+//        return service.allEmployeeGroup(departmentNumber);
+//    }
 }
