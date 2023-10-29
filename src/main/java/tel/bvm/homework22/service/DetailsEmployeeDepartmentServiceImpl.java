@@ -14,33 +14,8 @@ public class DetailsEmployeeDepartmentServiceImpl implements DetailsEmployeeDepa
         this.employeeService = employeeService;
     }
 
-//    public DetailsEmployeeDepartmentServiceImpl(EmployeeServiceImpl employeeServiceImpl) {
-//        this.employeeServiceImpl = employeeServiceImpl;
-//    }
-
-//    public Map<String, Employee> employeeMap;
-
-//    public DetailsEmployeeDepartmentServiceImpl(Map<String, Employee> employeeMap) {
-//        this.employeeMap = employeeMap;
-//    }
-
-//    public final Map<String, Employee> employeeMap;
-
-//    public void EmployeeServiceImpl(Map<String, Employee> employeeMap) {
-//        this.employeeMap = employeeMap;
-//    }
-
-//    @Override
-//    public Map add() {
-//
-//        employeeMap.put(idEmployeeInfo, employeeNew);
-//
-//    }
-
     @Override
     public Employee maxWageDepartment(Integer departmentNumber) {
-//        final Map<Integer, Employee> employeeDepartment = new HashMap<>(Map.of());
-//        employeeService.getMap().values();
 
         Optional<Employee> maxDepartmentEmployee;
         if (departmentNumber == null) {

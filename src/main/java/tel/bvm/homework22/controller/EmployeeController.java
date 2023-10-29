@@ -18,20 +18,6 @@ public class EmployeeController {
         this.service = service;
     }
 
-    public int departmentNumberGenerator() {
-        java.util.Random random = new java.util.Random();
-        int minimumScore = 1;
-        int departmentNumberGenerator = random.nextInt(5) + minimumScore;
-        return departmentNumberGenerator;
-    }
-
-    public int wageValueGenerator() {
-        java.util.Random random = new java.util.Random();
-        int minimumScore = 100_000;
-        int wageValueGenerator = random.nextInt(300_000) + minimumScore;
-        return wageValueGenerator;
-    }
-
     @GetMapping("/add")
     public Map add(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String passwordNumber, @RequestParam Integer yearBirth, @RequestParam (value = "accepted", required = false) Employee employee) {
         return service.add(firstName, lastName, passwordNumber, yearBirth, employee);
@@ -51,19 +37,4 @@ public class EmployeeController {
     public Map<String, Employee> allEmployeeInfo() {
         return service.allEmployeeInfo();
     }
-
-//    @GetMapping("/departments/max-salary")
-//    public Employee maxWageDepartment(@RequestParam(value = "department", required = false) Integer departmentNumber) {
-//        return service.maxWageDepartment(departmentNumber);
-//    }
-//
-//    @GetMapping("/departments/min-salary")
-//    public Employee minWageDepartment(@RequestParam(value = "department", required = false) Integer departmentNumber) {
-//        return service.minWageDepartment(departmentNumber);
-//    }
-//
-//    @GetMapping("/departments/all")
-//    public String employeeDepartment(@RequestParam(value = "department", required = false) Integer departmentNumber) {
-//        return service.allEmployeeGroup(departmentNumber);
-//    }
 }
