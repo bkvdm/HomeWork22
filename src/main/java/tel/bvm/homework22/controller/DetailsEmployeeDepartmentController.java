@@ -23,11 +23,6 @@ public class DetailsEmployeeDepartmentController {
         return detailsEmployeeDepartmentService.allEmployeeInfo();
     }
 
-//    @GetMapping("/add")
-//    public Map add(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String passwordNumber, @RequestParam Integer yearBirth, @RequestParam (value = "accepted", required = false) Employee employee) {
-//        return detailsEmployeeDepartmentService.add(firstName, lastName, passwordNumber, yearBirth, employee);
-//    }
-
     @GetMapping("/departments/max-salary")
     public Employee maxWageDepartment(@RequestParam(value = "department", required = false) Integer departmentNumber) {
         return detailsEmployeeDepartmentService.maxWageDepartment(departmentNumber);

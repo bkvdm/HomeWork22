@@ -2,7 +2,6 @@ package tel.bvm.homework22.service;
 
 import tel.bvm.homework22.scheme.Employee;
 
-import java.util.Collection;
 import java.util.Map;
 
 public interface EmployeeService {
@@ -16,10 +15,4 @@ public interface EmployeeService {
     Map<String, Employee> allEmployeeInfo();
 
     Map<String, Employee> getMap();
-//    Employee maxWageDepartment(Integer departmentNumber);
-//
-//    Employee minWageDepartment(Integer departmentNumber);
-//
-//    String allEmployeeGroup(Integer department);
-
 }

@@ -6,8 +6,6 @@ import org.springframework.stereotype.Component;
 import tel.bvm.homework22.scheme.Employee;
 import tel.bvm.homework22.service.EmployeeService;
 
-import java.util.Map;
-
 @Component
 public class AcceptedEmployees implements CommandLineRunner {
 
@@ -57,6 +55,5 @@ public class AcceptedEmployees implements CommandLineRunner {
         employeeService.add(employeeDefault9.getFirstName(), employeeDefault9.getLastName(), employeeDefault9.getPasswordNumber(), employeeDefault9.getYearBirth(), employeeDefault9);
         employeeService.add(employeeDefault10.getFirstName(), employeeDefault10.getLastName(), employeeDefault10.getPasswordNumber(), employeeDefault10.getYearBirth(), employeeDefault10);
         employeeService.add(employeeDefault11.getFirstName(), employeeDefault11.getLastName(), employeeDefault11.getPasswordNumber(), employeeDefault11.getYearBirth(), employeeDefault11);
-
     }
 }
