@@ -19,8 +19,8 @@ public class EmployeeController {
     }
 
     @GetMapping("/add")
-    public Map add(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String passwordNumber, @RequestParam Integer yearBirth, @RequestParam (value = "accepted", required = false) Employee employee) {
-        return service.add(firstName, lastName, passwordNumber, yearBirth, employee);
+    public Map add(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String passwordNumber, @RequestParam Integer yearBirth) {
+        return service.add(firstName, lastName, passwordNumber, yearBirth);
     }
 
     @GetMapping("/remove")

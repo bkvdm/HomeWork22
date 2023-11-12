@@ -10,7 +10,7 @@ import tel.bvm.homework22.service.DetailsEmployeeDepartmentService;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/employee/details")
+@RequestMapping("/employee/details/departments")
 public class DetailsEmployeeDepartmentController {
     private final DetailsEmployeeDepartmentService detailsEmployeeDepartmentService;
 
@@ -23,17 +23,17 @@ public class DetailsEmployeeDepartmentController {
         return detailsEmployeeDepartmentService.allEmployeeInfo();
     }
 
-    @GetMapping("/departments/max-salary")
+    @GetMapping("/max-salary")
     public Employee maxWageDepartment(@RequestParam(value = "department", required = false) Integer departmentNumber) {
         return detailsEmployeeDepartmentService.maxWageDepartment(departmentNumber);
     }
 
-    @GetMapping("/departments/min-salary")
+    @GetMapping("/min-salary")
     public Employee minWageDepartment(@RequestParam(value = "department", required = false) Integer departmentNumber) {
         return detailsEmployeeDepartmentService.minWageDepartment(departmentNumber);
     }
 
-    @GetMapping("/departments/all")
+    @GetMapping("/all")
     public String employeeDepartment(@RequestParam(value = "department", required = false) Integer departmentNumber) {
         return detailsEmployeeDepartmentService.allEmployeeGroup(departmentNumber);
     }

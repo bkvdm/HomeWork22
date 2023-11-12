@@ -31,18 +31,13 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Map add(String firstName, String lastName, String passwordNumber, Integer yearBirth, Employee employee) {
+    public Map add(String firstName, String lastName, String passwordNumber, Integer yearBirth) {
+        String idEmployeeInfo = firstName + lastName + passwordNumber;
+        Employee employee = new Employee(firstName, lastName, passwordNumber, yearBirth, wageValueGenerator(), departmentNumberGenerator());
 
-        if (employee == null) {
-            Employee employeeNew = new Employee(firstName, lastName, passwordNumber, yearBirth, wageValueGenerator(), departmentNumberGenerator());
-            String idEmployeeInfo = firstName + lastName + passwordNumber;
-
-            if (employeeMap.containsKey(idEmployeeInfo)) {
-                throw new EmployeeAlreadyAddedException();
-            }
-            employeeMap.put(idEmployeeInfo, employeeNew);
+        if (employeeMap.containsKey(idEmployeeInfo)) {
+            throw new EmployeeAlreadyAddedException();
         } else {
-            String idEmployeeInfo = firstName + lastName + passwordNumber;
             employeeMap.put(idEmployeeInfo, employee);
         }
         return employeeMap;
